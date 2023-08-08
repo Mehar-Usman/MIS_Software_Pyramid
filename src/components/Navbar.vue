@@ -1,29 +1,57 @@
 <template>
-  <nav class="bg-gray-100 p-4">
-    <div class="flex justify-between items-center relative">
+  <nav class="bg-gray-100 py-3">
+    <div class="flex justify-between px-4 items-center relative">
       <router-link to="/">
         <img src="src/photos/softPyramid.png" alt="Logo" class="h-6 lg:h-10" />
       </router-link>
       <div class="hidden sm:flex">
-        <ul class="flex space-x-2 lg:space-x-4 text-white whitespace-nowrap">
-          <li v-for="menuItem in menuItems" :key="menuItem">
-            <a href="#" :class="{ active: activeItem === menuItem }" class="text-gray-400 hover:text-gray-700 text-[13px] lg:text-[14px]" @click="setActiveItem(menuItem)">{{ menuItem }}</a>
-            
+        <ul class="flex space-x-2 lg:space-x-5 text-white whitespace-nowrap">
+          <li>
+            <router-link  to="/" :class="{ active: activeItem === 'Home' }" class="text-gray-400 hover:text-gray-700 text-[13px] lg:text-[14px]">Home</router-link>
+          </li>
+          <li>
+            <router-link to="/" :class="{ active: activeItem === 'Salary' }" class="text-gray-400 hover:text-gray-700 text-[13px] lg:text-[14px]">Salary</router-link>
+          </li>
+          <li>
+            <router-link to="/" :class="{ active: activeItem === 'Increments' }" class="text-gray-400 hover:text-gray-700 text-[13px] lg:text-[14px]">Increments</router-link>
+          </li> 
+          <li class="flex items-center gap-2">
+      <router-link to="#" :class="{ active: activeItem === 'Payroll' }" class="text-gray-400 hover:text-gray-700 text-[13px] lg:text-[14px]">Payroll  </router-link>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 items-center flex mt-1 text-gray-500">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+      </svg>
+
+          </li>
+          <li>
+            <router-link to="/" :class="{ active: activeItem === 'Daily Status' }" class="text-gray-400 hover:text-gray-700 text-[13px] lg:text-[14px]">Daily Status</router-link>
+          </li>
+          <li>
+            <router-link to="/" :class="{ active: activeItem === 'Leaves' }" class="text-gray-400 hover:text-gray-700 text-[13px] lg:text-[14px]">Leaves</router-link>
+          </li>
+          <li>
+            <router-link to="/" :class="{ active: activeItem === 'Assets' }" class="text-gray-400 hover:text-gray-700 text-[13px] lg:text-[14px]">Assets</router-link>
+          </li>
+          <li>
+            <router-link to="/" :class="{ active: activeItem === 'Entertainment' }" class="text-gray-400 hover:text-gray-700 text-[13px] lg:text-[14px]">Entertainment</router-link>
+          </li>
+          <li class="">
+            <router-link to="/" class="flex gap-1 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-500 " >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <p  :class="{ active: activeItem === 'Abu Usman' }" class="text-gray-400 hover:text-gray-700 text-[13px] lg:text-[14px]">Abu Usman</p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 mt-1 text-gray-500">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </router-link>
           </li>
         </ul>
-        <div v-if="activeItem === 'Payroll'"  class="absolute ml-40 top-8 bg-white-300 px-4  space-y-2  border-black-500 mt-4 shadow-xl border-t-0 border border-l border-r border-b"  >
-          <p value="" >text colection </p>
-          <p value="">Provident Fund </p>
-          <p value="">Allownce</p>
-          <p value="">Fund</p>
       </div>
-      </div>
-      
       <div class="sm:hidden">
         <button @click="toggleMenu" class="text-white">
           <svg
             class="h-6 w-6"
-            fill="none" 
+            fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -38,13 +66,40 @@
         </button>
         <div
           v-if="isMenuOpen"
-          class="fixed inset-0 pt-32 flex items-center justify-center"
+          class=" inset-0 z-20 pt-10 flex items-center justify-center"
           @click="closeMenu"
         >
-          <div ref="menu" class=" p-4 rounded-lg shadow-md menu-popup block z-50 bg-red-300 ">
+          <div ref="menu" class="bg-white p-4 rounded-lg shadow-md menu-popup block">
             <ul class="text-gray-700 space-y-2">
-              <li v-for="menuItem in menuItems" :key="menuItem">
-                <a href="#" class="block px-4 py-2 hover:bg-blue-200 rounded" @click="setActiveItem(menuItem)">{{ menuItem }}</a>
+              <li>
+                <a class="block px-4 py-2 hover:bg-blue-200 rounded">Home</a>
+              </li>
+              <li>
+                <a class="block px-4 py-2 hover:bg-blue-200 rounded">Salary</a>
+              </li>
+              <li>
+                <a class="block px-4 py-2 hover:bg-blue-200 rounded">Increments</a>
+              </li>
+              <li>
+                <a class="block px-4 py-2 hover:bg-blue-200 rounded">Payroll</a>
+              </li>
+              <li>
+                <a class="block px-4 py-2 hover:bg-blue-200 rounded">Daily Status</a>
+              </li>
+              <li>
+                <a class="block px-4 py-2 hover:bg-blue-200 rounded">Leaves</a>
+              </li>
+              <li>
+                <a class="block px-4 py-2 hover:bg-blue-200 rounded">Assets</a>
+              </li>
+              <li>
+                <a class="block px-4 py-2 hover:bg-blue-200 rounded">Entertainment</a>
+              </li>
+              <li>
+                <a class="block px-4 py-2 hover:bg-blue-200 rounded">Increments</a>
+              </li>
+              <li>
+                <a class="block px-4 py-2 hover:bg-blue-200 rounded">Abu Usman</a>
               </li>
             </ul>
           </div>
@@ -59,34 +114,19 @@ export default {
   data() {
     return {
       isMenuOpen: false,
-      activeItem: null,
-      menuItems: [
-        'Home',
-        'Salary',
-        'Increments',
-        'Payroll',
-        'Daily Status',
-        'Leaves',
-        'Assets',
-        'Entertainment',
-        'Abu Usman'
-      ]
+      activeItem: null
     };
   },
   methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
-    toggleClickedShow(){
-      this.clickedShow = !this.clickedShow
-    },
+  
+  },
+  watch:{
     closeMenu() {
       this.isMenuOpen = false;
     },
-    setActiveItem(item) {
-      this.activeItem = item;
-      this.closeMenu(); // Close the menu after selecting an item
-    }
   }
 };
 </script>
@@ -94,16 +134,10 @@ export default {
 <style scoped>
 /* Increase the width of the popup */
 .menu-popup {
-  width: auto;
-  max-width: 300px; /* Adjust the maximum width as needed */
+  width: 600px; /* Adjust the width as needed */
 }
-
 .active {
   color: black;
-}
-select{
-  appearance: none;
-  outline: none;
 }
 /* Tailwind classes can be used here if needed */
 </style>
