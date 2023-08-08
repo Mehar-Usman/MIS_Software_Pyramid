@@ -53,13 +53,17 @@
         </div>
       </div>
     </div>
-    <div class="bg-gray-200 py-6">
-      <p class="text-center text-grayShade text-sm">2023 © SOFTPYRAMID MIS</p>
-    </div>
+   <div>
+    <Footer/>
+   </div>
   </template>
   
   <script>
+  import Footer from '../components/Footer.vue'
   export default {
+    components:{
+        Footer,
+    },
     data() {
       return {
         email: '',
@@ -73,7 +77,7 @@
       ForNextPage() {
         if (this.email !== '' && this.password !== '' && this.emailErrorMessage === '' && this.passwordErrorMessage === '') {
           // Correct input
-          this.$router.push("https://facebook.com");
+          this.$router.push("/home");
         } else if (this.email === '' || this.password === '') {
           // Empty input fields
           alert('Please fill in the input fields.');

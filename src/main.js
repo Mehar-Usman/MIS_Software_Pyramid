@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 import SoftPyramid from './views/SoftPyramid.vue';
+import MISHome from './views/MISHome.vue';
 import { createRouter , createWebHistory } from 'vue-router';
 
 const router = createRouter({
@@ -11,6 +12,11 @@ const router = createRouter({
         path: "/",
         name: "LoginPage",
         component: SoftPyramid
+     },
+     {
+        path: "/home",
+        name: "homePage",
+        component: MISHome
      },
     ],
 })

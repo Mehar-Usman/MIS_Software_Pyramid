@@ -1,0 +1,109 @@
+<template>
+  <nav class="bg-gray-100 p-4">
+    <div class="flex justify-between items-center relative">
+      <router-link to="/">
+        <img src="src/photos/softPyramid.png" alt="Logo" class="h-6 lg:h-10" />
+      </router-link>
+      <div class="hidden sm:flex">
+        <ul class="flex space-x-2 lg:space-x-4 text-white whitespace-nowrap">
+          <li v-for="menuItem in menuItems" :key="menuItem">
+            <a href="#" :class="{ active: activeItem === menuItem }" class="text-gray-400 hover:text-gray-700 text-[13px] lg:text-[14px]" @click="setActiveItem(menuItem)">{{ menuItem }}</a>
+            
+          </li>
+        </ul>
+        <div v-if="activeItem === 'Payroll'"  class="absolute ml-40 top-8 bg-white-300 px-4  space-y-2  border-black-500 mt-4 shadow-xl border-t-0 border border-l border-r border-b"  >
+          <p value="" >text colection </p>
+          <p value="">Provident Fund </p>
+          <p value="">Allownce</p>
+          <p value="">Fund</p>
+      </div>
+      </div>
+      
+      <div class="sm:hidden">
+        <button @click="toggleMenu" class="text-white">
+          <svg
+            class="h-6 w-6"
+            fill="none" 
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+        <div
+          v-if="isMenuOpen"
+          class="fixed inset-0 pt-32 flex items-center justify-center"
+          @click="closeMenu"
+        >
+          <div ref="menu" class=" p-4 rounded-lg shadow-md menu-popup block z-50 bg-red-300 ">
+            <ul class="text-gray-700 space-y-2">
+              <li v-for="menuItem in menuItems" :key="menuItem">
+                <a href="#" class="block px-4 py-2 hover:bg-blue-200 rounded" @click="setActiveItem(menuItem)">{{ menuItem }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isMenuOpen: false,
+      activeItem: null,
+      menuItems: [
+        'Home',
+        'Salary',
+        'Increments',
+        'Payroll',
+        'Daily Status',
+        'Leaves',
+        'Assets',
+        'Entertainment',
+        'Abu Usman'
+      ]
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+    },
+    toggleClickedShow(){
+      this.clickedShow = !this.clickedShow
+    },
+    closeMenu() {
+      this.isMenuOpen = false;
+    },
+    setActiveItem(item) {
+      this.activeItem = item;
+      this.closeMenu(); // Close the menu after selecting an item
+    }
+  }
+};
+</script>
+
+<style scoped>
+/* Increase the width of the popup */
+.menu-popup {
+  width: auto;
+  max-width: 300px; /* Adjust the maximum width as needed */
+}
+
+.active {
+  color: black;
+}
+select{
+  appearance: none;
+  outline: none;
+}
+/* Tailwind classes can be used here if needed */
+</style>
