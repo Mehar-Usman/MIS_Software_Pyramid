@@ -210,7 +210,7 @@
                                                     <td class="border py-2 px-4">{{ item.ticketTitle }}</td>
                                                     <td class="border py-2 px-4">{{ item.ticketURL }}</td>
                                                     <td class="border py-2 px-4">{{ item.expectedTime }}</td>
-                                                    <td class="border py-2 px-4">{{ item.loggedTime }}</td>
+                                                    <td class="border py-5 px-4">{{ item.loggedTime }}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
