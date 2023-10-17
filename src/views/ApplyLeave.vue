@@ -41,7 +41,7 @@ export default {
     Footer
 },
     data(){
-        return{
+        return {
             userDescription : 'Date of Joining : 2023-07-17 00:00:00 | Months :',
         }
     }

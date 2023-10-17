@@ -8,7 +8,9 @@
         </thead>
         <tbody>
           <tr v-for="(row, rowIndex) in rows" :key="rowIndex">
-            <td v-for="(cell, cellIndex) in row" :key="cellIndex"  class="border border-gray-300 px-4 py-3  text-[15px]" :class="  isBolds ?  'font-bold' : 'font-light'">{{ cell }}</td>
+            <td v-for="(cell, cellIndex) in row" :key="cellIndex"  class="border border-gray-300 px-4 py-3  text-[15px]"  :style="{
+                'font-weight': isBolds && rowIndex === 2 ? 'bold' : 'normal',}" >{{ cell }}
+            </td>
           </tr>
         </tbody>
       </table>

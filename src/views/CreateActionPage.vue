@@ -42,10 +42,11 @@
         <div>
             <div class="px-32 pt-6 pb-10">
                 <DynamicTable 
-                 :headers="tableHeaders" 
-                 :rows="tableRows"
-                 :isBolds="rows ===3"
-                 />
+                    :headers="tableHeaders" 
+                    :rows="tableRows"
+                    :isBolds="index === 2"
+                />
+
             </div>
             <div>
                 <p class="text-center text-sm text-black font-medium tracking-wider py-6">Scan the above QR code to verify this document. <br>
